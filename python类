@@ -1,0 +1,14 @@
+class Student(Object):
+    def __init__(self, name, score):
+        self.__name = name
+        self.__score = score
+    
+    def print_info(self):
+        print("%s:%s" % (self.__name, self.__score))
+        
+if __name__ == "main":
+    s = Student("Tom", 99)
+    s.print_info()
+     
+    
+定义一个学生类，语法如上，私有变量前面加“__”，不可以在类外访问。类方法的参数需要self参数。
