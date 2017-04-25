@@ -1,4 +1,4 @@
-class Student(Object):
+class Student(object):
     def __init__(self, name, score):
         self.__name = name
         self.__score = score
@@ -11,4 +11,12 @@ if __name__ == "main":
     s.print_info()
      
     
-定义一个学生类，语法如上，私有变量前面加“__”，不可以在类外访问。类方法的参数需要self参数。
+定义一个学生类，语法如上。
+注意：
+1. 关键字：class
+2. 默认继承object类
+3. __init__函数初始化实例
+4. 私有变量前面加“__”，不可以在类外访问
+5. 类方法的参数需要self参数。
+
+
