@@ -24,12 +24,12 @@ public class Solution {
     public List<List<String>> solveNQueens(int n) {
     	List<List<String>> ret = new ArrayList<List<String>>();
         
-		List<Point> curList = new ArrayList<Point>(n);
+    	List<Point> curList = new ArrayList<Point>(n);
 		boolean finish = false;
 		int x = 0, y = 0; 
 		while(true){
 			boolean findOnePlace = false;
-		
+
 			for(; x < n; x++){
 				Point p = new Point(x, y);
 				if(checkCanPlace(curList, p)){
@@ -39,8 +39,8 @@ public class Solution {
 					break;
 				}
 			}
-			
-			
+
+
 			if(curList.size() == n || !findOnePlace){
 				//完成一个结果的搜索，那么继续搜索。
 				if(curList.size() == n){
@@ -48,7 +48,7 @@ public class Solution {
 					List<String> ans = buildSearchedListToString(curList, n);
 					ret.add(ans);
 				}
-				
+
 				while(!curList.isEmpty()){
 					Point lastPoint = curList.remove(curList.size() - 1);
 					x = lastPoint.x + 1;
@@ -65,11 +65,11 @@ public class Solution {
 				y = curList.size();
 				x = 0;
 			}
-			
+
 			if(finish){
 				break;
 			}
-			
+
 		}
 		
         return ret;
@@ -79,29 +79,29 @@ public class Solution {
     public List<String> buildSearchedListToString(List<Point> curList, int n){
     	List<String> list = new ArrayList<String>(n);
     	for(int y = 0; y < n; ++y){
-    		StringBuilder sb = new StringBuilder();
-    		for(int x = 0; x < n; ++x){
-    			Point p = curList.get(y);
-    			if(p.x == x){
-    				sb.append("Q");
-    			}else{
-    				sb.append(".");
-    			}
-        	}
-    		list.add(sb.toString());
-    		
+			StringBuilder sb = new StringBuilder();
+			for(int x = 0; x < n; ++x){
+			Point p = curList.get(y);
+			if(p.x == x){
+						sb.append("Q");
+			}else{
+				sb.append(".");
+			}
+		}
+		list.add(sb.toString());
+
 		}
     	return list;
     }
     
-	private boolean checkCanPlace(List<Point> curList, Point p){
+    private boolean checkCanPlace(List<Point> curList, Point p){
 		for(Point curPoint : curList){
 			if(p.inLine(curPoint)){
 				return false;
 			}
 		}
 		return true;
-	}
+    }
 	
     public class Point{
         public int x;
